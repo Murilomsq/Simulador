@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
     {
         if(layerMaskLimitator != LayerMask.GetMask("Chao"))
         {
-            Debug.LogError("Garanta de alterar a vari·vel layerMaskLimitator do CameraController para a c‚mera" +
+            Debug.LogError("Garanta de alterar a vari√°vel layerMaskLimitator do CameraController para a c√¢mera" +
                 "funcionar corretamente");
         }
 
@@ -56,7 +56,7 @@ public class CameraController : MonoBehaviour
             collider.center = Vector3.zero;
         } else
         {
-            Debug.LogError("N„o foi encontrado o ch„o da cena. Garanta que o nome do objeto seja \"chao\"");
+            Debug.LogError("N√£o foi encontrado o ch√£o da cena. Garanta que o nome do objeto seja \"chao\"");
         }
     }
 

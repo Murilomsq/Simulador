@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 
 public class UIManager : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class UIManager : MonoBehaviour
     public static event Action<GameObject> OnSubMenuPanelOpened;
     public static event Action OnStartButtonPushed;
 
+    [Header("Timelines")] 
+    [SerializeField] private PlayableDirector demoTimeline;
+    
     [Header("Panels")]
     [SerializeField] GameObject startPanel;
 
@@ -90,7 +95,6 @@ public class UIManager : MonoBehaviour
         if (startPanel.activeInHierarchy)
         {
             OnStartButtonPushed?.Invoke();
-
         }
 
         startPanel.GetComponent<CanvasGroup>().DOFade(0, timeFade).OnComplete(() =>
@@ -107,6 +111,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenMainPanel()
     {
+        demoTimeline.Play();
         btnSimulation.ToggleSubPanelManual(true);
         FindObjectOfType<CameraController>().InitCamera();
     }
